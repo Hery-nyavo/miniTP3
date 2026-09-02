@@ -45,6 +45,15 @@ class MainActivity : AppCompatActivity() {
         // avec le texte "Collecte du jour : 4,5 kg de vanille",
         // et le lancer via Intent.createChooser(...).
         // Modèle : diapositive « Les Intents » du cours.
+
+        val sendIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, "Collecte du jour : 4,5 kg de vanille")
+        }
+
+        val chooserIntent = Intent.createChooser(sendIntent, "Partager la collecte")
+        startActivity(chooserIntent)
         Log.i(tag, "partagerCollecte — à compléter !")
     }
 
